@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FD Token 详解</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .node { position: relative; transition: border-color .15s, box-shadow .15s, background .15s, transform .15s; }
+    .node.selected { border: 2px solid #007d68 !important; background: #e6f8f5; box-shadow: 0 0 0 4px rgba(0,168,137,.2), 0 8px 18px rgba(0,125,104,.16); transform: translateY(-2px); }
+    .node.selected .k { color: #006b5a; }
+    .node.selected .v { color: #23776b; }
+    .selected-mark { position: absolute; right: 8px; top: -11px; border-radius: 10px; background: #007d68; color: #fff; padding: 2px 7px; font-size: 10px; font-weight: 700; box-shadow: 0 2px 6px rgba(0,93,77,.25); }
+    .explain-panel { min-height: 650px; }
+    .explain-placeholder { display: flex; align-items: center; justify-content: center; min-height: 520px; color: #738096; text-align: center; }
+    .token-summary { max-width: 620px; padding: 32px 8px; }
+    .token-summary h3 { margin: 16px 0 6px; font-size: 16px; }
+    .token-summary p { max-width: 560px; font-size: 15px; line-height: 1.75; }
+    .large-value { font-size: 24px; color: #007d68; }
+    .tree-group summary { justify-content: flex-start; }
+    .tree-group summary small { margin-left: auto; }
+    .tree-group summary::before { flex: 0 0 auto; margin-right: 4px; }
+    .tree-heading { display: flex; align-items: flex-start; justify-content: space-between; }
+    .tree-heading h2, .tree-heading p { padding-left: 6px; }
+    .tree-toggle { width: 30px; height: 30px; border: 1px solid #e6ebf2; border-radius: 7px; background: #fff; color: #526277; cursor: pointer; font-size: 15px; line-height: 1; }
+    .tree-toggle:hover { border-color: #00a889; color: #007d68; background: #e6f8f5; }
+    .tree-toggle sup { font-size: 9px; margin-left: 1px; }
+    .tree-group summary.selected { background: #e6f8f5; color: #007d68; font-weight: 600; }
+    .blood-page { padding: 20px 24px 36px; }
+    .blood-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .blood-toolbar h2 { margin: 0; font-size: 18px; }
+    .blood-toolbar p { margin: 3px 0 0; color: #738096; font-size: 12px; }
+    .access-legend { display: flex; gap: 8px; }
+    .access-legend span, .access-badge { padding: 3px 7px; border-radius: 999px; font-size: 10px; font-weight: 600; }
+    .legend-callable, .callable .access-badge { color: #007d68; background: #e6f8f5; }
+    .legend-locked, .locked .access-badge { color: #8b6470; background: #f7edf0; }
+    .blood-workspace { display: grid; grid-template-columns: minmax(0,1fr) 270px; gap: 14px; align-items: start; }
+    .blood-board { position: relative; min-width: 0; overflow: auto; border: 1px solid #e6ebf2; border-radius: 16px; background: #f8fafc; }
+    .blood-lanes { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4,minmax(230px,1fr)); gap: 42px; align-items: start; padding: 0 20px 36px; min-width: 1100px; }
+    .blood-lane { min-width: 0; }
+    .blood-lane > header { position: sticky; top: 0; z-index: 4; min-height: 112px; margin: 0 -12px 12px; padding: 16px 14px 10px; background: rgba(248,250,252,.96); backdrop-filter: blur(6px); border-bottom: 1px solid #e6ebf2; }
+    .lane-heading { width: 100%; min-width: 0; }
+    .lane-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .blood-lane h2 { margin: 0; font-size: 15px; }
+    .blood-lane header p { margin: 3px 0 0; color: #738096; font-size: 11px; line-height: 1.45; }
+    .blood-lane header strong { color: #738096; font-size: 12px; }
+    .lane-select { width: 100%; height: 30px; margin-top: 9px; padding: 0 28px 0 9px; border: 1px solid #d8e0ea; border-radius: 7px; background: #fff; color: #253247; font: inherit; font-size: 11px; cursor: pointer; }
+    .lane-select:hover, .lane-select:focus { border-color: #111; outline: none; box-shadow: 0 0 0 2px rgba(0,0,0,.1); }
+    .lane-empty { padding: 24px 10px; color: #8a96a8; font-size: 11px; text-align: center; }
+    .blood-node-list { display: flex; flex-direction: column; gap: 10px; }
+    .blood-node { position: relative; z-index: 3; min-height: 58px; padding: 10px 11px; background: #fff; border: 1px solid #dfe6ef; border-radius: 10px; box-shadow: 0 3px 10px rgba(32,48,72,.06); cursor: pointer; transition: opacity .16s,border-color .16s,box-shadow .16s,transform .16s; }
+    .blood-node:hover, .blood-node:focus-visible { border-color: #111; outline: 0; box-shadow: 0 0 0 2px rgba(0,0,0,.12), 0 7px 18px rgba(0,0,0,.16); }
+    .blood-node.callable { border-left: 4px solid #00a889; }
+    .blood-node.locked { border-left: 4px solid #bd8b98; }
+    .blood-node-title { display: flex; align-items: center; gap: 6px; min-width: 0; }
+    .blood-node-title b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+    .blood-node-meta { margin-top: 4px; color: #7e8ba0; font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .color-dot { width: 11px; height: 11px; flex: 0 0 11px; border: 1px solid rgba(0,0,0,.08); border-radius: 50%; background: var(--token-color,#fff); }
+    .blood-links { position: absolute; z-index: 1; inset: 0; overflow: visible; pointer-events: none; }
+    .blood-links path { fill: none; stroke: #b7c9df; stroke-width: 1.3; stroke-dasharray: 5 5; opacity: .38; transition: opacity .16s,stroke .16s,stroke-width .16s; }
+    .blood-board.is-focused .blood-node { opacity: .38; }
+    .blood-board.is-focused .blood-node.is-related { opacity: 1; border-color: #333; box-shadow: 0 5px 16px rgba(0,0,0,.14); }
+    .blood-board.is-focused .blood-node.is-active { border-color: #000; box-shadow: 0 0 0 3px rgba(0,0,0,.18),0 7px 20px rgba(0,0,0,.2); transform: translateY(-1px); }
+    .blood-board.is-focused .blood-links path { opacity: .12; }
+    .blood-board.is-focused .blood-links path.is-related { opacity: 1; stroke: #000; stroke-width: 2.5; stroke-dasharray: 7 5; }
+    .blood-detail { position: sticky; top: 14px; min-height: 360px; padding: 18px; background: #fff; border: 1px solid #e0e6ee; border-radius: 14px; box-shadow: 0 8px 24px rgba(20,31,48,.08); }
+    .blood-detail-empty { display: flex; align-items: center; justify-content: center; min-height: 320px; color: #8a96a8; text-align: center; line-height: 1.8; }
+    .blood-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .detail-lane { color: #738096; font-size: 11px; }
+    .blood-detail h2 { margin: 12px 0; font-size: 18px; word-break: break-word; }
+    .blood-detail .detail-value { display: flex; align-items: center; gap: 8px; padding: 10px; background: #f6f8fb; border-radius: 8px; }
+    .blood-detail code { font-size: 12px; word-break: break-all; }
+    .blood-detail dl { margin: 14px 0 0; }
+    .blood-detail dt { margin-top: 12px; color: #738096; font-size: 11px; }
+    .blood-detail dd { margin: 3px 0 0; line-height: 1.65; word-break: break-word; }
+    .detail-callable { color: #007d68; background: #e6f8f5; }
+    .detail-locked { color: #8b6470; background: #f7edf0; }
+    .tabs { overflow-x: auto; gap: 20px; scrollbar-width: thin; }
+    .tabs button { flex: 0 0 auto; white-space: nowrap; }
+    .category-layout { grid-template-columns: 280px minmax(0,1fr); }
+    .category-layout > .detail { min-height: 650px; }
+    .size-guide { margin-bottom: 16px; padding: 18px; }
+    .size-guide h2 { margin: 0 0 4px; font-size: 16px; }
+    .size-guide > p { margin: 0 0 14px; color: #738096; font-size: 12px; }
+    .size-guide-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+    .size-guide-card { padding: 14px; border: 1px solid #e6ebf2; border-radius: 10px; background: #f8fafc; }
+    .size-guide-card h3 { display: flex; align-items: baseline; gap: 8px; margin: 0 0 8px; font-size: 14px; }
+    .size-guide-card h3 code { color: #007d68; font-size: 13px; }
+    .size-guide-card p { margin: 0; color: #526277; line-height: 1.7; }
+    .size-guide-card strong { color: #172033; }
+    @media(max-width:900px) { .size-guide-grid { grid-template-columns: 1fr; } }
+    @media(max-width:900px) { .blood-workspace { grid-template-columns: minmax(0,1fr); } .blood-detail { position: static; min-height: auto; } .blood-detail-empty { min-height: 120px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">FD</span><div><h1>FD Token 详解</h1><p>设计变量的来源、语义与使用场景</p></div></div>
+    <div class="controls"><label>产品线<select id="product"></select></label><label class="search"><span>⌕</span><input id="search" placeholder="搜索 Token、描述或场景" /></label></div>
+  </header>
+  <nav class="tabs">
+    <button class="active" data-view="lineage">颜色</button>
+    <button data-view="size">尺寸</button>
+    <button data-view="line-height">行高</button>
+    <button data-view="font-size">字号</button>
+    <button data-view="line-width">描边尺寸</button>
+    <button data-view="opacity">透明度</button>
+    <button data-view="gradient">全局填充梯度</button>
+    <button data-view="box-shadow">全局盒子阴影</button>
+    <button data-view="border-shadow">全局描边阴影</button>
+    <button data-view="component">组件 Token</button>
+  </nav>
+  <main id="app"></main>
+  <script src="app.js"></script>
+</body>
+</html>
