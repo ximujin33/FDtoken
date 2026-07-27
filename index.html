@@ -6,6 +6,9 @@
   <title>FD Token 详解</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    html { scroll-padding-top: 146px; }
+    .topbar { position: sticky; top: 0; z-index: 100; }
+    .tabs { position: sticky; top: 82px; z-index: 90; }
     .node { position: relative; transition: border-color .15s, box-shadow .15s, background .15s, transform .15s; }
     .node.selected { border: 2px solid #007d68 !important; background: #e6f8f5; box-shadow: 0 0 0 4px rgba(0,168,137,.2), 0 8px 18px rgba(0,125,104,.16); transform: translateY(-2px); }
     .node.selected .k { color: #006b5a; }
@@ -22,9 +25,18 @@
     .tree-group summary::before { flex: 0 0 auto; margin-right: 4px; }
     .tree-heading { display: flex; align-items: flex-start; justify-content: space-between; }
     .tree-heading h2, .tree-heading p { padding-left: 6px; }
-    .tree-toggle { width: 30px; height: 30px; border: 1px solid #e6ebf2; border-radius: 7px; background: #fff; color: #526277; cursor: pointer; font-size: 15px; line-height: 1; }
+    .tree-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 2px; width: 30px; height: 30px; padding: 0; border: 1px solid #e6ebf2; border-radius: 7px; background: #fff; color: #526277; cursor: pointer; font-size: 15px; line-height: 1; }
     .tree-toggle:hover { border-color: #00a889; color: #007d68; background: #e6f8f5; }
-    .tree-toggle sup { font-size: 9px; margin-left: 1px; }
+    .tree-toggle-arrow { display: inline-flex; align-items: center; justify-content: center; height: 15px; margin: 0; font-size: 9px; line-height: 15px; }
+    .search { position: relative; z-index: 20; }
+    .search-results { position: absolute; top: calc(100% + 7px); right: 0; width: 360px; max-height: 420px; overflow-y: auto; padding: 6px; border: 1px solid #d8e0ea; border-radius: 10px; background: #fff; box-shadow: 0 14px 34px rgba(20,31,48,.16); }
+    .search-results[hidden] { display: none; }
+    .search-result { display: block; width: 100%; padding: 9px 10px; border: 0; border-radius: 7px; background: transparent; color: #172033; font: inherit; text-align: left; cursor: pointer; }
+    .search-result:hover, .search-result:focus-visible { outline: none; background: #f1f5f8; }
+    .search-result-name { display: block; overflow: hidden; font-size: 13px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+    .search-result-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 2px; color: #738096; font-size: 10px; }
+    .search-result-path { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .search-empty { padding: 18px 10px; color: #738096; font-size: 12px; text-align: center; }
     .tree-group summary.selected { background: #e6f8f5; color: #007d68; font-weight: 600; }
     .blood-page { padding: 20px 24px 36px; }
     .blood-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
@@ -35,32 +47,64 @@
     .legend-callable, .callable .access-badge { color: #007d68; background: #e6f8f5; }
     .legend-locked, .locked .access-badge { color: #8b6470; background: #f7edf0; }
     .blood-workspace { display: grid; grid-template-columns: minmax(0,1fr) 270px; gap: 14px; align-items: start; }
-    .blood-board { position: relative; min-width: 0; overflow: auto; border: 1px solid #e6ebf2; border-radius: 16px; background: #f8fafc; }
-    .blood-lanes { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4,minmax(230px,1fr)); gap: 42px; align-items: start; padding: 0 20px 36px; min-width: 1100px; }
-    .blood-lane { min-width: 0; }
-    .blood-lane > header { position: sticky; top: 0; z-index: 4; min-height: 112px; margin: 0 -12px 12px; padding: 16px 14px 10px; background: rgba(248,250,252,.96); backdrop-filter: blur(6px); border-bottom: 1px solid #e6ebf2; }
+    .blood-board { position: relative; min-width: 0; height: calc(100vh - 190px); min-height: 420px; overflow: auto; border: 1px solid #e6ebf2; border-radius: 16px; background: #f8fafc; }
+    .blood-lanes { position: relative; z-index: 2; display: grid; grid-template-columns: 220px 220px 692px; gap: 42px; align-items: start; width: max-content; padding: 0 20px 36px; }
+    .blood-header-mask { position: sticky; top: 0; z-index: 5; grid-column: 1 / -1; grid-row: 1; align-self: start; width: 100%; height: 124px; background: #f8fafc; border-bottom: 1px solid #e6ebf2; pointer-events: none; }
+    .blood-lane { grid-row: 1; min-width: 0; }
+    .blood-lane.lane-raw { grid-column: 1; }
+    .blood-lane.lane-business { grid-column: 2; }
+    .blood-lane.lane-semantic { grid-column: 3; }
+    .blood-lane > header { position: sticky; top: 0; z-index: 6; height: 124px; margin: 0 -12px 12px; padding: 16px 14px 10px; background: rgba(248,250,252,.96); backdrop-filter: blur(6px); border-bottom: 1px solid #e6ebf2; }
     .lane-heading { width: 100%; min-width: 0; }
-    .lane-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .lane-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; min-height: 58px; }
     .blood-lane h2 { margin: 0; font-size: 15px; }
     .blood-lane header p { margin: 3px 0 0; color: #738096; font-size: 11px; line-height: 1.45; }
     .blood-lane header strong { color: #738096; font-size: 12px; }
-    .lane-select { width: 100%; height: 30px; margin-top: 9px; padding: 0 28px 0 9px; border: 1px solid #d8e0ea; border-radius: 7px; background: #fff; color: #253247; font: inherit; font-size: 11px; cursor: pointer; }
+    .lane-controls { display: flex; align-items: center; gap: 8px; width: 100%; margin-top: 9px; }
+    .lane-select { flex: 1; min-width: 0; height: 30px; margin: 0; padding: 0 28px 0 9px; border: 1px solid #d8e0ea; border-radius: 7px; background: #fff; color: #253247; font: inherit; font-size: 11px; cursor: pointer; }
+    .lane-group-toggle { flex: 0 0 30px; }
     .lane-select:hover, .lane-select:focus { border-color: #111; outline: none; box-shadow: 0 0 0 2px rgba(0,0,0,.1); }
+    .lane-select:disabled { cursor: not-allowed; color: #8a96a8; background: #f1f3f6; border-color: #e1e6ed; box-shadow: none; }
     .lane-empty { padding: 24px 10px; color: #8a96a8; font-size: 11px; text-align: center; }
-    .blood-node-list { display: flex; flex-direction: column; gap: 10px; }
-    .blood-node { position: relative; z-index: 3; min-height: 58px; padding: 10px 11px; background: #fff; border: 1px solid #dfe6ef; border-radius: 10px; box-shadow: 0 3px 10px rgba(32,48,72,.06); cursor: pointer; transition: opacity .16s,border-color .16s,box-shadow .16s,transform .16s; }
+    .blood-node-list, .grouped-node-list { display: flex; flex-direction: column; gap: 12px; }
+    .lane-token-group { width: 220px; }
+    .lane-token-group > summary { display: flex; align-items: center; gap: 6px; min-height: 32px; padding: 5px 4px; border-bottom: 1px solid #d9e0e9; color: #344258; cursor: pointer; list-style: none; font-size: 12px; font-weight: 600; }
+    .lane-token-group > summary::-webkit-details-marker { display: none; }
+    .lane-token-group:not([open]) > :not(summary) { display: none; }
+    .lane-token-group > summary::before { content: '›'; display: inline-block; color: #738096; font-size: 16px; line-height: 1; transform: rotate(0); transition: transform .15s; }
+    .lane-token-group[open] > summary::before { transform: rotate(90deg); }
+    .lane-token-group > summary small { margin-left: auto; color: #738096; font-size: 10px; font-weight: 600; }
+    .lane-token-group-content { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+    .semantic-root-list { display: flex; flex-direction: column; gap: 12px; width: 692px; }
+    .semantic-root-group { width: 692px; }
+    .semantic-root-group > summary { width: 100%; }
+    .semantic-root-content { display: flex; flex-direction: column; gap: 10px; width: 220px; padding-top: 8px; }
+    .semantic-neutral-columns { display: grid; grid-template-columns: repeat(3,220px); gap: 16px; align-items: start; padding-top: 8px; }
+    .semantic-neutral-direct { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .semantic-neutral-hierarchy { grid-column: 2 / 4; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .semantic-gradient-group { width: 456px; }
+    .semantic-gradient-group > summary { width: 100%; }
+    .semantic-gradient-content { display: grid; grid-template-columns: repeat(2,220px); column-gap: 16px; align-items: start; padding-top: 8px; }
+    .semantic-gradient-direct { display: flex; flex-direction: column; gap: 10px; }
+    .semantic-gradient-children { display: flex; flex-direction: column; gap: 12px; }
+    .blood-node { position: relative; z-index: 3; width: 220px; min-height: 58px; padding: 10px 11px; background: #fff; border: 1px solid #dfe6ef; border-radius: 10px; box-shadow: 0 3px 10px rgba(32,48,72,.06); cursor: pointer; transition: opacity .16s,border-color .16s,box-shadow .16s,transform .16s; }
     .blood-node:hover, .blood-node:focus-visible { border-color: #111; outline: 0; box-shadow: 0 0 0 2px rgba(0,0,0,.12), 0 7px 18px rgba(0,0,0,.16); }
     .blood-node.callable { border-left: 4px solid #00a889; }
     .blood-node.locked { border-left: 4px solid #bd8b98; }
     .blood-node-title { display: flex; align-items: center; gap: 6px; min-width: 0; }
     .blood-node-title b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
-    .blood-node-meta { margin-top: 4px; color: #7e8ba0; font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .blood-node-meta { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 4px; color: #7e8ba0; font-size: 10px; }
+    .blood-node-meta > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .blood-node-meta .access-badge { flex: 0 0 auto; padding: 2px 6px; font-size: 9px; line-height: 1.3; }
     .color-dot { width: 11px; height: 11px; flex: 0 0 11px; border: 1px solid rgba(0,0,0,.08); border-radius: 50%; background: var(--token-color,#fff); }
     .blood-links { position: absolute; z-index: 1; inset: 0; overflow: visible; pointer-events: none; }
     .blood-links path { fill: none; stroke: #b7c9df; stroke-width: 1.3; stroke-dasharray: 5 5; opacity: .38; transition: opacity .16s,stroke .16s,stroke-width .16s; }
     .blood-board.is-focused .blood-node { opacity: .38; }
     .blood-board.is-focused .blood-node.is-related { opacity: 1; border-color: #333; box-shadow: 0 5px 16px rgba(0,0,0,.14); }
     .blood-board.is-focused .blood-node.is-active { border-color: #000; box-shadow: 0 0 0 3px rgba(0,0,0,.18),0 7px 20px rgba(0,0,0,.2); transform: translateY(-1px); }
+    .blood-board.is-focused .blood-node.is-pinned { opacity: 1; border: 2px solid #000; box-shadow: 4px 4px 0 #000; transform: translate(-1px,-1px); }
+    .blood-board.is-focus-mode .blood-node { cursor: default; }
+    .blood-board.is-focus-mode .blood-node:not(.is-pinned):hover, .blood-board.is-focus-mode .blood-node:not(.is-pinned):focus-visible { border-color: #000; box-shadow: 0 0 0 2px rgba(0,0,0,.14), 0 7px 18px rgba(0,0,0,.2); transform: translateY(-1px); }
     .blood-board.is-focused .blood-links path { opacity: .12; }
     .blood-board.is-focused .blood-links path.is-related { opacity: 1; stroke: #000; stroke-width: 2.5; stroke-dasharray: 7 5; }
     .blood-detail { position: sticky; top: 14px; min-height: 360px; padding: 18px; background: #fff; border: 1px solid #e0e6ee; border-radius: 14px; box-shadow: 0 8px 24px rgba(20,31,48,.08); }
@@ -68,17 +112,42 @@
     .blood-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .detail-lane { color: #738096; font-size: 11px; }
     .blood-detail h2 { margin: 12px 0; font-size: 18px; word-break: break-word; }
-    .blood-detail .detail-value { display: flex; align-items: center; gap: 8px; padding: 10px; background: #f6f8fb; border-radius: 8px; }
+    .detail-lineage-path { display: flex; flex-direction: column; gap: 4px; }
+    .detail-path-row { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; min-width: 0; }
+    .detail-path-row span { max-width: 100%; color: inherit; font-size: inherit; line-height: inherit; font-weight: inherit; overflow-wrap: anywhere; }
+    .detail-path-row span.current { color: inherit; font-weight: inherit; }
+    .detail-path-row i { color: inherit; font-size: inherit; font-style: normal; }
+    .detail-current-value { display: flex; align-items: center; gap: 7px; }
     .blood-detail code { font-size: 12px; word-break: break-all; }
     .blood-detail dl { margin: 14px 0 0; }
     .blood-detail dt { margin-top: 12px; color: #738096; font-size: 11px; }
     .blood-detail dd { margin: 3px 0 0; line-height: 1.65; word-break: break-word; }
     .detail-callable { color: #007d68; background: #e6f8f5; }
     .detail-locked { color: #8b6470; background: #f7edf0; }
+    .focus-action { width: 100%; height: 36px; margin-top: 18px; border: 1px solid #111; border-radius: 8px; background: #111; color: #fff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .focus-action:hover, .focus-action:focus-visible { background: #fff; color: #111; outline: 2px solid #111; outline-offset: 2px; }
     .tabs { overflow-x: auto; gap: 20px; scrollbar-width: thin; }
     .tabs button { flex: 0 0 auto; white-space: nowrap; }
     .category-layout { grid-template-columns: 280px minmax(0,1fr); }
     .category-layout > .detail { min-height: 650px; }
+    .shadow-group-list { display: flex; flex-direction: column; gap: 4px; margin-top: 14px; }
+    .shadow-group-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 10px 9px; border: 0; border-radius: 7px; background: transparent; color: #172033; font: inherit; text-align: left; cursor: pointer; }
+    .shadow-group-item:hover, .shadow-group-item.selected { background: #e6f8f5; color: #007d68; }
+    .shadow-group-item small { color: #738096; font-size: 11px; }
+    .shadow-detail { padding: 22px 28px; }
+    .shadow-preview-stage { display: flex; align-items: center; justify-content: center; min-height: 290px; margin: 24px 0 28px; padding: 48px; border: 1px solid #edf1f5; border-radius: 12px; background: #f7f9fb; }
+    .shadow-preview-card { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 260px; height: 150px; border: 1px solid #eef1f4; border-radius: 12px; background: #fff; }
+    .shadow-preview-card strong { font-size: 16px; }
+    .shadow-preview-card span { margin-top: 5px; color: #738096; font-size: 12px; }
+    .shadow-layer-list { display: flex; flex-direction: column; gap: 8px; }
+    .shadow-layer-list > div { display: grid; grid-template-columns: 12px 56px minmax(0,1fr); align-items: center; gap: 8px; }
+    .shadow-layer-list b { font-size: 12px; }
+    .shadow-layer-list code { color: #526277; }
+    .shadow-parameter-list { display: flex; flex-direction: column; gap: 8px; }
+    .shadow-parameter-list > div { display: grid; grid-template-columns: 12px 64px minmax(0,1fr); align-items: center; gap: 8px; }
+    .shadow-parameter-list b { font-size: 12px; }
+    .spread-symbol { display: inline-flex; align-items: center; justify-content: center; width: 12px; color: #738096; font-size: 12px; }
+    .shadow-css-value { padding: 10px 12px; border-radius: 8px; background: #f6f8fb; line-height: 1.65; }
     .size-guide { margin-bottom: 16px; padding: 18px; }
     .size-guide h2 { margin: 0 0 4px; font-size: 16px; }
     .size-guide > p { margin: 0 0 14px; color: #738096; font-size: 12px; }
@@ -94,8 +163,8 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><span class="brand-mark">FD</span><div><h1>FD Token 详解</h1><p>设计变量的来源、语义与使用场景</p></div></div>
-    <div class="controls"><label>产品线<select id="product"></select></label><label class="search"><span>⌕</span><input id="search" placeholder="搜索 Token、描述或场景" /></label></div>
+    <div class="brand"><div><h1>FD Token 详解</h1><p>设计变量的血缘、语义与使用场景</p></div></div>
+    <div class="controls"><label>产品线<select id="product"></select></label><div class="search"><span>⌕</span><input id="search" aria-label="搜索 Token、描述或场景" placeholder="搜索 Token、描述或场景" autocomplete="off" /><div id="search-results" class="search-results" role="listbox" hidden></div></div></div>
   </header>
   <nav class="tabs">
     <button class="active" data-view="lineage">颜色</button>
@@ -110,6 +179,6 @@
     <button data-view="component">组件 Token</button>
   </nav>
   <main id="app"></main>
-  <script src="app.js"></script>
+  <script src="app.js?v=20260727-13"></script>
 </body>
 </html>
