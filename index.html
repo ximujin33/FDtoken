@@ -50,7 +50,7 @@
     .legend-locked, .locked .access-badge { color: #8b6470; background: #f7edf0; }
     .blood-workspace { display: grid; grid-template-columns: minmax(0,1fr) 270px; gap: 14px; align-items: start; }
     .blood-board { position: relative; min-width: 0; height: calc(100vh - 130px); min-height: 420px; overflow: auto; border: 1px solid #e6ebf2; border-radius: 16px; background: #f8fafc; }
-    .blood-lanes { position: relative; z-index: 2; display: grid; grid-template-columns: 220px 220px 692px; gap: 42px; align-items: start; width: max-content; padding: 0 20px 36px; }
+    .blood-lanes { position: relative; z-index: 2; display: grid; grid-template-columns: 220px 456px 692px; gap: 42px; align-items: start; width: max-content; padding: 0 20px 36px; }
     .blood-header-mask { position: sticky; top: 0; z-index: 5; grid-column: 1 / -1; grid-row: 1; align-self: start; width: 100%; height: 124px; background: #f8fafc; border-bottom: 1px solid #e6ebf2; pointer-events: none; }
     .blood-lane { grid-row: 1; min-width: 0; }
     .blood-lane.lane-raw { grid-column: 1; }
@@ -77,6 +77,9 @@
     .lane-token-group[open] > summary::before { transform: rotate(90deg); }
     .lane-token-group > summary small { margin-left: auto; color: #738096; font-size: 10px; font-weight: 600; }
     .lane-token-group-content { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+    .business-lane-columns { display: grid; grid-template-columns: repeat(2,220px); gap: 16px; align-items: start; }
+    .business-lane-column { min-width: 0; }
+    .business-lane-column > h3 { width: 220px; margin: 0 0 8px; padding: 0 4px 7px; border-bottom: 1px solid #d9e0e9; color: #526277; font-size: 11px; font-weight: 600; }
     .semantic-root-list { display: flex; flex-direction: column; gap: 12px; width: 692px; }
     .semantic-root-group { width: 692px; }
     .semantic-root-group > summary { width: 100%; }
@@ -181,6 +184,6 @@
     <button data-view="component">组件 Token</button>
   </nav>
   <main id="app"></main>
-  <script src="app.js?v=20260727-13"></script>
+  <script src="app.js?v=20260728-2"></script>
 </body>
 </html>
