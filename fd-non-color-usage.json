@@ -1,0 +1,914 @@
+{
+  "🔵尺寸.间距.gapXS": [
+    "breadcrumb",
+    "datetime-range",
+    "tab"
+  ],
+  "🔵尺寸.间距.gapSM": [
+    "breadcrumb",
+    "button",
+    "check",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "image",
+    "menu",
+    "navigation",
+    "pagination",
+    "radio",
+    "select",
+    "spin",
+    "step",
+    "tab",
+    "tag",
+    "tree",
+    "upload"
+  ],
+  "🔵尺寸.间距.gap": [
+    "alert",
+    "anchor",
+    "carousel",
+    "check",
+    "collapse",
+    "color-picker",
+    "combo",
+    "datetime",
+    "instruction",
+    "m-cascader",
+    "navigation",
+    "pagination",
+    "pop-confirm",
+    "progress",
+    "prompt",
+    "radio",
+    "result",
+    "search-input",
+    "select",
+    "spin",
+    "step",
+    "tab",
+    "table",
+    "upload"
+  ],
+  "🔵尺寸.间距.gapLG": [
+    "instruction",
+    "upload"
+  ],
+  "🔵尺寸.间距.gapXL": [
+    "alert",
+    "check",
+    "collapse",
+    "color-picker",
+    "dialog",
+    "instruction",
+    "pop-confirm",
+    "prompt",
+    "radio",
+    "spin",
+    "step",
+    "tab"
+  ],
+  "🔵尺寸.间距.gap2XL": [
+    "result",
+    "step",
+    "tab"
+  ],
+  "🔵尺寸.间距.gap3XL": [],
+  "🔵尺寸.间距.gap4XL": [
+    "check",
+    "radio"
+  ],
+  "🔵尺寸.间距.gap5XL": [],
+  "🔵尺寸.边距.布局边距.paddingLayout3XS": [
+    "tab"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayout2XS": [
+    "auto-complete",
+    "cascader",
+    "combo",
+    "m-cascader",
+    "menu",
+    "select",
+    "tab",
+    "tag",
+    "tooltip",
+    "tree-select",
+    "upload"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayoutXS": [
+    "instruction",
+    "navigation",
+    "tooltip",
+    "upload"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayoutSM": [
+    "color-picker",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "drawer",
+    "instruction",
+    "pop-confirm",
+    "upload"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayout": [
+    "datetime",
+    "dialog",
+    "drawer",
+    "popover",
+    "step"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayoutLG": [
+    "dialog",
+    "drawer",
+    "instruction",
+    "step"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayoutXL": [
+    "alert",
+    "instruction",
+    "prompt",
+    "step",
+    "upload"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayout2XL": [],
+  "🔵尺寸.边距.布局边距.paddingLayout3XL": [
+    "upload"
+  ],
+  "🔵尺寸.边距.布局边距.paddingLayout4XL": [],
+  "🔵尺寸.边距.内边距.paddingZero": [
+    "button"
+  ],
+  "🔵尺寸.边距.内边距.padding2XS": [
+    "input-number",
+    "select",
+    "tab"
+  ],
+  "🔵尺寸.边距.内边距.paddingXS": [
+    "auto-complete",
+    "badge",
+    "breadcrumb",
+    "collapse",
+    "combo",
+    "datetime-range",
+    "input",
+    "input-number",
+    "navigation",
+    "next-table",
+    "select",
+    "slider",
+    "tab",
+    "table",
+    "tag",
+    "tree"
+  ],
+  "🔵尺寸.边距.内边距.paddingSM": [
+    "datetime",
+    "next-table",
+    "select",
+    "tab",
+    "tag"
+  ],
+  "🔵尺寸.边距.内边距.padding": [
+    "auto-complete",
+    "badge",
+    "button",
+    "cascader",
+    "collapse",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "drawer",
+    "input",
+    "input-number",
+    "list",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "next-table",
+    "radio",
+    "select",
+    "slider",
+    "tab",
+    "tag",
+    "tree"
+  ],
+  "🔵尺寸.边距.内边距.paddingLG": [
+    "button",
+    "collapse",
+    "datetime",
+    "list",
+    "navigation",
+    "next-table",
+    "radio",
+    "tab"
+  ],
+  "🔵尺寸.边距.内边距.paddingXL": [
+    "button",
+    "collapse",
+    "combo",
+    "image",
+    "list",
+    "next-table",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵尺寸.边距.内边距.padding2XL": [
+    "button",
+    "tab"
+  ],
+  "🔵尺寸.边距.内边距.padding3XL": [
+    "collapse",
+    "list"
+  ],
+  "🔵尺寸.边距.内边距.padding4XL": [],
+  "🔵尺寸.高度.controlHeightXS": [],
+  "🔵尺寸.高度.controlHeightSM": [
+    "anchor",
+    "button",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "next-table",
+    "pagination",
+    "radio",
+    "select",
+    "step",
+    "tab"
+  ],
+  "🔵尺寸.高度.controlHeightMSM": [],
+  "🔵尺寸.高度.controlHeight": [
+    "anchor",
+    "auto-complete",
+    "button",
+    "cascader",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "form",
+    "input",
+    "input-number",
+    "m-cascader",
+    "menu",
+    "pagination",
+    "prompt",
+    "radio",
+    "search-input",
+    "select",
+    "step",
+    "tab",
+    "tree",
+    "upload"
+  ],
+  "🔵尺寸.高度.controlHeightMLG": [],
+  "🔵尺寸.高度.controlHeightLG": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵字号.fontSizeSM": [
+    "badge",
+    "button",
+    "collapse",
+    "color-picker",
+    "combo",
+    "form",
+    "input",
+    "input-number",
+    "navigation",
+    "pagination",
+    "popover",
+    "progress",
+    "radio",
+    "result",
+    "select",
+    "spin",
+    "splitter",
+    "step",
+    "switch",
+    "tab",
+    "tag",
+    "tooltip"
+  ],
+  "🔵字号.fontSizeMSM": [
+    "data-table",
+    "table"
+  ],
+  "🔵字号.fontSize": [
+    "alert",
+    "auto-complete",
+    "breadcrumb",
+    "button",
+    "check",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "form",
+    "input",
+    "input-number",
+    "instruction",
+    "menu",
+    "navigation",
+    "pagination",
+    "pop-confirm",
+    "progress",
+    "radio",
+    "result",
+    "search-input",
+    "select",
+    "slider",
+    "spin",
+    "step",
+    "tab",
+    "tag",
+    "tree",
+    "typography",
+    "upload"
+  ],
+  "🔵字号.fontSizeLG": [
+    "alert",
+    "button",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "image",
+    "input",
+    "input-number",
+    "instruction",
+    "progress",
+    "prompt",
+    "radio",
+    "result",
+    "select",
+    "spin",
+    "splitter",
+    "step",
+    "tab"
+  ],
+  "🔵字号.fontSizeXL": [
+    "dialog",
+    "drawer",
+    "result",
+    "tab"
+  ],
+  "🔵字号.fontSize2XL": [
+    "progress"
+  ],
+  "🔵字号.标题.fontSizeHeading5": [
+    "typography"
+  ],
+  "🔵字号.标题.fontSizeHeading4": [
+    "typography"
+  ],
+  "🔵字号.标题.fontSizeHeading3": [
+    "instruction",
+    "typography"
+  ],
+  "🔵字号.标题.fontSizeHeading2": [
+    "typography"
+  ],
+  "🔵字号.标题.fontSizeHeading1": [
+    "typography"
+  ],
+  "🔵字号.图标.iconSize2SM": [
+    "tag"
+  ],
+  "🔵字号.图标.iconSizeSM": [
+    "tag"
+  ],
+  "🔵字号.图标.iconSize": [
+    "button",
+    "cascader",
+    "collapse",
+    "combo",
+    "drawer",
+    "instruction",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "search-input",
+    "select",
+    "tag",
+    "tree"
+  ],
+  "🔵字号.图标.iconSizeLG": [
+    "button"
+  ],
+  "🔵字号.字重.controlItemFontWeightActive": [
+    "combo",
+    "select",
+    "tree"
+  ],
+  "🔵行高.lineHeightSM": [
+    "badge",
+    "button",
+    "color-picker",
+    "combo",
+    "form",
+    "input",
+    "input-number",
+    "navigation",
+    "pagination",
+    "popover",
+    "progress",
+    "result",
+    "select",
+    "spin",
+    "step",
+    "tab",
+    "tooltip"
+  ],
+  "🔵行高.lineHeight": [
+    "alert",
+    "auto-complete",
+    "breadcrumb",
+    "button",
+    "check",
+    "collapse",
+    "combo",
+    "datetime-range",
+    "dialog",
+    "form",
+    "input",
+    "input-number",
+    "instruction",
+    "list",
+    "menu",
+    "navigation",
+    "pagination",
+    "pop-confirm",
+    "progress",
+    "radio",
+    "result",
+    "search-input",
+    "select",
+    "slider",
+    "spin",
+    "step",
+    "tab",
+    "tree"
+  ],
+  "🔵行高.lineHeightLG": [
+    "alert",
+    "button",
+    "collapse",
+    "combo",
+    "dialog",
+    "image",
+    "input",
+    "input-number",
+    "instruction",
+    "progress",
+    "prompt",
+    "result",
+    "spin",
+    "step",
+    "tab"
+  ],
+  "🔵行高.lineHeightXL": [
+    "dialog",
+    "drawer",
+    "result"
+  ],
+  "🔵行高.lineHeight2XL": [
+    "color-picker",
+    "progress"
+  ],
+  "🔵行高.lineHeightHeading5": [
+    "typography"
+  ],
+  "🔵行高.lineHeightHeading4": [
+    "alert",
+    "typography"
+  ],
+  "🔵行高.lineHeightHeading3": [
+    "typography"
+  ],
+  "🔵行高.lineHeightHeading2": [
+    "typography"
+  ],
+  "🔵行高.lineHeightHeading1": [
+    "typography"
+  ],
+  "🔵描边尺寸.lineWidth": [
+    "combo",
+    "drawer",
+    "input-number",
+    "radio",
+    "tag"
+  ],
+  "🔵描边尺寸.lineWidthBold": [],
+  "🔵描边尺寸.controlOutlineWidth": [
+    "cascader",
+    "check",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "radio",
+    "select"
+  ],
+  "🔵描边尺寸.lineWidthFocus": [],
+  "🔵透明度.opacityLoading": [],
+  "🔵基础.填充梯度.填充.colorFillAlter": [
+    "collapse",
+    "navigation"
+  ],
+  "🔵基础.填充梯度.填充.colorFillContent": [
+    "step"
+  ],
+  "🔵基础.填充梯度.填充.colorBgTextNormalHover": [
+    "breadcrumb",
+    "button",
+    "cascader",
+    "datetime",
+    "datetime-range",
+    "drawer",
+    "input-number",
+    "list",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "tab",
+    "tree"
+  ],
+  "🔵基础.填充梯度.填充.colorBgTextNormalActive": [
+    "button",
+    "menu",
+    "navigation"
+  ],
+  "🔵基础.填充梯度.填充.colorBgTextHover": [
+    "button"
+  ],
+  "🔵基础.填充梯度.填充.colorBgTexActive": [
+    "button"
+  ],
+  "🔵基础.填充梯度.填充.colorBgTextErrorHover": [
+    "button"
+  ],
+  "🔵基础.填充梯度.填充.colorBgTextErrorActive": [
+    "button"
+  ],
+  "🔵基础.填充梯度.控件.controlItemBgActive": [
+    "auto-complete",
+    "cascader",
+    "combo",
+    "m-cascader",
+    "navigation",
+    "select",
+    "tree"
+  ],
+  "🔵基础.填充梯度.控件.controlItemBgActiveHover": [],
+  "🔵基础.填充梯度.控件.controlItemBgActiveDisabled": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "radio",
+    "select"
+  ],
+  "🔵基础.填充梯度.控件.controlItemTextActive": [
+    "tree"
+  ],
+  "🔵基础.盒子阴影.boxShadowSubtle.Color 1": [],
+  "🔵基础.盒子阴影.boxShadowSubtle.Color 2": [],
+  "🔵基础.盒子阴影.boxShadow.Color 1": [],
+  "🔵基础.盒子阴影.boxShadow.Color 2": [],
+  "🔵基础.盒子阴影.boxShadow.Color 3": [],
+  "🔵基础.盒子阴影.boxShadowSecondary.Color 1": [
+    "cascader",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dropdown",
+    "m-cascader",
+    "pop-confirm",
+    "popover",
+    "select",
+    "tooltip"
+  ],
+  "🔵基础.盒子阴影.boxShadowSecondary.Color 2": [
+    "cascader",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dropdown",
+    "m-cascader",
+    "pop-confirm",
+    "popover",
+    "select",
+    "tooltip"
+  ],
+  "🔵基础.盒子阴影.boxShadowSecondary.Color 3": [
+    "cascader",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dropdown",
+    "m-cascader",
+    "pop-confirm",
+    "popover",
+    "select",
+    "tooltip"
+  ],
+  "🔵基础.盒子阴影.boxShadowTertiary.Color 1": [
+    "alert",
+    "dialog",
+    "drawer",
+    "prompt"
+  ],
+  "🔵基础.盒子阴影.boxShadowTertiary.Color 2": [
+    "alert",
+    "dialog",
+    "drawer",
+    "prompt"
+  ],
+  "🔵基础.盒子阴影.boxShadowTertiary.Color 3": [
+    "alert",
+    "dialog",
+    "drawer",
+    "prompt"
+  ],
+  "🔵基础.描边阴影.controlShadow.color": [
+    "cascader",
+    "check",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "radio",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlShadow.Spread": [
+    "cascader",
+    "check",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "radio",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlWarningShadow.Color": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlWarningShadow.Spread": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlErrorShadow.Color": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlErrorShadow.Spread": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "select"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonHeightTextSM": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonHeightTextSM 2": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonHeightText": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonHeightTextLG": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonPaddingText": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonPaddingTextLG": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonSecondaryColorBg": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonSecondaryColorBgHover": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonSecondaryColorBgActive": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonSecondaryColorBgError": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonSecondaryColorBgErrorHover": [
+    "button"
+  ],
+  "🔵基础.组件Token.Button 按钮.buttonSecondaryColorBgErrorActive": [
+    "button"
+  ],
+  "🔵基础.组件Token.Slider 滑动输入条.sliderHandleColorDisabled": [
+    "slider"
+  ],
+  "🔵基础.组件Token.Table 表格.tableColorBgHeader": [
+    "next-table",
+    "table"
+  ],
+  "🔵基础.组件Token.Table 表格.tableColorBgZebra": [
+    "table"
+  ],
+  "🔵基础.组件Token.Table 表格.tableColorBgHover": [
+    "table"
+  ],
+  "🔵基础.组件Token.Table 表格.tableColorBgSelect": [],
+  "🔵基础.组件Token.Notification.notificationVerticalDistance": [],
+  "🔵基础.组件Token.Notification.notificationNorizontalDistance": [],
+  "🔵基础.组件Token.Tabs 标签页.tabsGap4XLLineSM": [],
+  "🔵基础.组件Token.Tabs 标签页.tabsGap4XLLine": [],
+  "🔵基础.组件Token.Tabs 标签页.tabsGap4XLLineLG": [],
+  "🔵基础.组件Token.Tabs 标签页.tabsPadding0Line": [],
+  "🔵基础.组件Token.Tabs 标签页.tabsColorBg": [],
+  "🔵基础.组件Token.Result 结果提示.resultHeightImageSM": [],
+  "🔵基础.组件Token.Result 结果提示.resultHeightImage": [],
+  "🔵基础.组件Token.Result 结果提示.resultHeightImageLG": [],
+  "🔵基础.组件Token.Tooltip 提示.tooltipPaddingLayoutXS": [
+    "tooltip"
+  ],
+  "🔵基础.组件Token.Tooltip 提示.tooltipPaddingLayout2XS": [
+    "tooltip"
+  ],
+  "🔵基础.组件Token.Spin 加载.spinHeightSM": [
+    "spin"
+  ],
+  "🔵基础.组件Token.Spin 加载.spinHeight": [
+    "spin"
+  ],
+  "🔵基础.组件Token.Spin 加载.spinHeightLG": [
+    "spin"
+  ],
+  "🔵基础.组件Token.Spin 加载.spinOne": [],
+  "🔵基础.组件Token.Spin 加载.spinTwo": [],
+  "🔵基础.组件Token.Spin 加载.spinThree": [],
+  "🔵基础.组件Token.Spin 加载.spinFour": [],
+  "🔵基础.组件Token.Tag 标签.tagHeightSM": [
+    "spin",
+    "tag"
+  ],
+  "🔵基础.组件Token.Tag 标签.tagHeight": [
+    "spin",
+    "tag"
+  ],
+  "🔵基础.组件Token.Tag 标签.tagHeightLG": [
+    "spin",
+    "tag"
+  ],
+  "🔵基础.组件Token.Tag 标签.tagColorFill": [],
+  "🔵基础.组件Token.ScrollBar 滚动条.ScrollBarColorFill": [
+    "virtual-list"
+  ],
+  "🔵基础.组件Token.ScrollBar 滚动条.ScrollBarColorBg": [
+    "virtual-list"
+  ],
+  "🔵基础.组件Token.Radio&CheckBox.RadioBorderColor": [],
+  "🔵基础.组件Token.Radio&CheckBox.RadioBorderColorDisabled": [],
+  "🔵基础.组件Token.Radio&CheckBox.CheckBoxBorderColor": [],
+  "🔵基础.组件Token.Radio&CheckBox.CheckBoxBorderColorDisabled": [],
+  "🔵基础.组件Token.PopConfirm 气泡确认框.PopconfirmColorBg": [
+    "pop-confirm"
+  ],
+  "🔵基础.组件Token.Dialog 弹窗.dialogWidthSM": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵基础.组件Token.Dialog 弹窗.dialogWidth": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵基础.组件Token.Dialog 弹窗.dialogWidthLG": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵基础.组件Token.Dialog 弹窗.dialogHeightSM": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵基础.组件Token.Dialog 弹窗.dialogHeight": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵基础.组件Token.Dialog 弹窗.dialogHeightLG": [
+    "button",
+    "combo",
+    "input",
+    "input-number",
+    "navigation",
+    "radio",
+    "select",
+    "tab"
+  ],
+  "🔵基础.盒子阴影.boxShadowSubtle": [],
+  "🔵基础.盒子阴影.boxShadow": [],
+  "🔵基础.盒子阴影.boxShadowSecondary": [
+    "cascader",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dropdown",
+    "m-cascader",
+    "pop-confirm",
+    "popover",
+    "select",
+    "tooltip"
+  ],
+  "🔵基础.盒子阴影.boxShadowTertiary": [
+    "alert",
+    "dialog",
+    "drawer",
+    "prompt"
+  ],
+  "🔵基础.描边阴影.controlShadow": [
+    "cascader",
+    "check",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "radio",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlWarningShadow": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "select"
+  ],
+  "🔵基础.描边阴影.controlErrorShadow": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "select"
+  ]
+}

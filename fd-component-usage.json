@@ -1,0 +1,751 @@
+{
+  "colorPrimary": [
+    "anchor",
+    "avatar",
+    "button",
+    "carousel",
+    "cascader",
+    "check",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "next-table",
+    "progress",
+    "radio",
+    "result",
+    "segment",
+    "select",
+    "slider",
+    "spin",
+    "splitter",
+    "step",
+    "switch",
+    "tab",
+    "tag",
+    "tree",
+    "typography"
+  ],
+  "colorPrimaryActive": [
+    "button",
+    "pagination",
+    "radio",
+    "tag",
+    "typography"
+  ],
+  "colorPrimaryHover": [
+    "button",
+    "check",
+    "combo",
+    "input",
+    "input-number",
+    "pagination",
+    "radio",
+    "select",
+    "step",
+    "tag",
+    "typography"
+  ],
+  "colorPrimaryBg": [
+    "auto-complete",
+    "button",
+    "cascader",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "m-cascader",
+    "navigation",
+    "select",
+    "spin",
+    "step",
+    "tab",
+    "tag",
+    "tree"
+  ],
+  "colorPrimaryBgActive": [],
+  "colorPrimaryBgHover": [
+    "datetime",
+    "datetime-range"
+  ],
+  "colorPrimaryBorder": [
+    "button",
+    "segment",
+    "slider",
+    "tag"
+  ],
+  "colorPrimaryBorderHover": [
+    "slider"
+  ],
+  "colorPrimaryText": [
+    "combo",
+    "select",
+    "spin"
+  ],
+  "colorPrimaryTextActive": [
+    "button"
+  ],
+  "colorPrimaryTextHover": [],
+  "colorControlOutline": [
+    "cascader",
+    "check",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "radio",
+    "select"
+  ],
+  "colorSuccess": [
+    "alert",
+    "instruction",
+    "progress",
+    "result",
+    "tag",
+    "typography"
+  ],
+  "colorSuccessActive": [
+    "tag"
+  ],
+  "colorSuccessHover": [
+    "tag"
+  ],
+  "colorSuccessBg": [
+    "instruction",
+    "tag"
+  ],
+  "colorSuccessBgHover": [],
+  "colorSuccessBorder": [
+    "instruction",
+    "tag"
+  ],
+  "colorSuccessBorderHover": [],
+  "colorSuccessText": [],
+  "colorSuccessTextActive": [],
+  "colorSuccessTextHover": [],
+  "colorWarning": [
+    "alert",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "instruction",
+    "result",
+    "select",
+    "tag",
+    "typography"
+  ],
+  "colorWarningActive": [
+    "tag"
+  ],
+  "colorWarningHover": [
+    "combo",
+    "input",
+    "select",
+    "tag"
+  ],
+  "colorWarningBg": [
+    "instruction",
+    "tag"
+  ],
+  "colorWarningBgHover": [],
+  "colorWarningBorder": [
+    "instruction",
+    "tag"
+  ],
+  "colorWarningBorderHover": [],
+  "colorWarningText": [
+    "cascader",
+    "select",
+    "tree-select"
+  ],
+  "colorWarningTextActive": [],
+  "colorWarningTextHover": [],
+  "colorControlWarningOutline": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "select"
+  ],
+  "colorError": [
+    "alert",
+    "badge",
+    "button",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "form",
+    "input",
+    "input-number",
+    "instruction",
+    "navigation",
+    "progress",
+    "result",
+    "select",
+    "step",
+    "tag",
+    "typography",
+    "upload"
+  ],
+  "colorErrorActive": [
+    "button",
+    "tag"
+  ],
+  "colorErrorHover": [
+    "button",
+    "combo",
+    "input",
+    "select",
+    "tag"
+  ],
+  "colorErrorBg": [
+    "button",
+    "instruction",
+    "navigation",
+    "tag"
+  ],
+  "colorErrorBgActive": [],
+  "colorErrorBgHover": [
+    "select"
+  ],
+  "colorErrorBorder": [
+    "instruction",
+    "tag"
+  ],
+  "colorErrorBorderHover": [],
+  "colorErrorText": [
+    "select"
+  ],
+  "colorErrorTextActive": [
+    "typography"
+  ],
+  "colorErrorTextHover": [
+    "typography"
+  ],
+  "colorControlErrorOutline": [
+    "combo",
+    "datetime",
+    "datetime-range",
+    "select"
+  ],
+  "colorInfo": [
+    "alert",
+    "instruction",
+    "progress",
+    "result",
+    "tag"
+  ],
+  "colorInfoActive": [
+    "tag"
+  ],
+  "colorInfoHover": [
+    "tag"
+  ],
+  "colorInfoBg": [
+    "instruction",
+    "tag"
+  ],
+  "colorInfoBgHover": [],
+  "colorInfoBorder": [
+    "instruction",
+    "tag"
+  ],
+  "colorInfoBorderHover": [],
+  "colorInfoText": [],
+  "colorInfoTextActive": [],
+  "colorInfoTextHover": [],
+  "colorZero": [
+    "button",
+    "tag"
+  ],
+  "colorWhite": [
+    "avatar",
+    "badge",
+    "button",
+    "cascader",
+    "check",
+    "collapse",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "drawer",
+    "dropdown",
+    "input",
+    "input-number",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "next-table",
+    "pop-confirm",
+    "popover",
+    "prompt",
+    "radio",
+    "search-input",
+    "select",
+    "spin",
+    "splitter",
+    "step",
+    "switch",
+    "tab",
+    "tooltip",
+    "tree",
+    "upload"
+  ],
+  "colorWhiteFixation": [
+    "avatar",
+    "badge",
+    "button",
+    "check",
+    "datetime",
+    "datetime-range",
+    "image",
+    "navigation",
+    "radio",
+    "spin",
+    "step",
+    "switch",
+    "tooltip"
+  ],
+  "colorBlack": [],
+  "colorText": [
+    "alert",
+    "anchor",
+    "auto-complete",
+    "badge",
+    "breadcrumb",
+    "button",
+    "cascader",
+    "check",
+    "collapse",
+    "combo",
+    "data-table",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "drawer",
+    "form",
+    "input",
+    "input-number",
+    "instruction",
+    "list",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "pagination",
+    "pop-confirm",
+    "popover",
+    "prompt",
+    "radio",
+    "result",
+    "segment",
+    "select",
+    "slider",
+    "splitter",
+    "step",
+    "tab",
+    "table",
+    "tag",
+    "tooltip",
+    "tree",
+    "typography",
+    "virtual-table"
+  ],
+  "colorTextSecondary": [
+    "button",
+    "cascader",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "instruction",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "search-input",
+    "select",
+    "step",
+    "tab",
+    "tag",
+    "typography"
+  ],
+  "colorTextTertiary": [
+    "back-top",
+    "breadcrumb",
+    "carousel",
+    "cascader",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "form",
+    "input",
+    "instruction",
+    "m-cascader",
+    "navigation",
+    "result",
+    "select",
+    "step",
+    "tree",
+    "typography"
+  ],
+  "colorTextQuaternary": [
+    "auto-complete",
+    "badge",
+    "breadcrumb",
+    "button",
+    "cascader",
+    "check",
+    "collapse",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "pagination",
+    "radio",
+    "search-input",
+    "segment",
+    "select",
+    "slider",
+    "tab",
+    "tree",
+    "typography"
+  ],
+  "colorTextPlaceholder": [
+    "cascader",
+    "color-picker",
+    "combo",
+    "datetime-range",
+    "input",
+    "m-cascader",
+    "search-input",
+    "select"
+  ],
+  "colorTextDescription": [
+    "breadcrumb",
+    "cascader",
+    "color-picker",
+    "combo",
+    "dialog",
+    "form",
+    "m-cascader",
+    "navigation",
+    "result",
+    "select",
+    "step",
+    "typography"
+  ],
+  "colorTextDisabled": [
+    "auto-complete",
+    "badge",
+    "breadcrumb",
+    "button",
+    "cascader",
+    "check",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "pagination",
+    "radio",
+    "segment",
+    "select",
+    "slider",
+    "tab",
+    "tree",
+    "typography"
+  ],
+  "colorTextDataDisabled": [
+    "cascader",
+    "check",
+    "combo",
+    "datetime-range",
+    "input",
+    "input-number",
+    "m-cascader",
+    "radio",
+    "select"
+  ],
+  "colorTextHeading": [
+    "result"
+  ],
+  "colorTextWhite": [
+    "pop-confirm"
+  ],
+  "colorTextWhiteFixation": [
+    "avatar",
+    "badge",
+    "button",
+    "check",
+    "datetime",
+    "datetime-range",
+    "image",
+    "navigation",
+    "radio",
+    "step",
+    "switch",
+    "tooltip"
+  ],
+  "colorTextLabel": [
+    "step"
+  ],
+  "colorIcon": [
+    "back-top",
+    "carousel",
+    "cascader",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "instruction",
+    "m-cascader",
+    "select",
+    "tree"
+  ],
+  "colorIconHover": [
+    "cascader",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "instruction",
+    "m-cascader",
+    "search-input",
+    "select",
+    "tag"
+  ],
+  "colorIconActive": [
+    "tag"
+  ],
+  "colorIconNormal": [
+    "button",
+    "cascader",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "search-input",
+    "select",
+    "step",
+    "tab",
+    "tag"
+  ],
+  "colorIconDisabled": [
+    "button",
+    "check",
+    "radio",
+    "switch"
+  ],
+  "colorBorderPrimary": [
+    "check",
+    "radio"
+  ],
+  "colorBorder": [
+    "badge",
+    "button",
+    "cascader",
+    "check",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "drawer",
+    "input",
+    "input-number",
+    "list",
+    "m-cascader",
+    "pagination",
+    "radio",
+    "segment",
+    "select",
+    "slider",
+    "splitter",
+    "tab",
+    "tag",
+    "upload"
+  ],
+  "colorBorderSecondary": [
+    "anchor",
+    "cascader",
+    "combo",
+    "data-table",
+    "datetime",
+    "datetime-range",
+    "divider",
+    "m-cascader",
+    "navigation",
+    "next-table",
+    "select",
+    "slider",
+    "splitter",
+    "step",
+    "tab",
+    "table",
+    "virtual-table"
+  ],
+  "colorBorderTertiary": [],
+  "colorSplit": [
+    "anchor",
+    "cascader",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "divider",
+    "m-cascader",
+    "navigation",
+    "select",
+    "splitter",
+    "step",
+    "tab"
+  ],
+  "colorSplitWhite": [],
+  "colorFill": [],
+  "colorFillSecondary": [
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "progress",
+    "radio",
+    "select",
+    "slider",
+    "step"
+  ],
+  "colorFillTertiary": [
+    "button",
+    "menu",
+    "navigation",
+    "select",
+    "slider"
+  ],
+  "colorFillQuaternary": [
+    "breadcrumb",
+    "button",
+    "cascader",
+    "check",
+    "collapse",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "dialog",
+    "drawer",
+    "input",
+    "input-number",
+    "list",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "pagination",
+    "radio",
+    "segment",
+    "select",
+    "slider",
+    "tab",
+    "tag",
+    "tree"
+  ],
+  "colorBgContainer": [
+    "badge",
+    "button",
+    "cascader",
+    "check",
+    "color-picker",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "drawer",
+    "input",
+    "input-number",
+    "m-cascader",
+    "menu",
+    "navigation",
+    "next-table",
+    "radio",
+    "search-input",
+    "select",
+    "spin",
+    "splitter",
+    "step",
+    "tab",
+    "tree"
+  ],
+  "colorBgContainerSecondary": [],
+  "colorBgContainerTertiary": [
+    "spin"
+  ],
+  "colorBgContainerGrey": [],
+  "colorBgContainerGreySecondary": [
+    "tab"
+  ],
+  "colorBgContainerGreyTertiary": [
+    "tab"
+  ],
+  "colorBgContainerDisabled": [
+    "button",
+    "cascader",
+    "check",
+    "combo",
+    "datetime",
+    "datetime-range",
+    "input",
+    "input-number",
+    "m-cascader",
+    "pagination",
+    "radio",
+    "segment",
+    "select",
+    "slider"
+  ],
+  "colorBgElevated": [
+    "dialog",
+    "dropdown",
+    "navigation",
+    "pop-confirm",
+    "popover",
+    "prompt",
+    "select",
+    "spin",
+    "splitter",
+    "tooltip"
+  ],
+  "colorBgElevaterFixation": [],
+  "colorBgSpotlight": [
+    "tooltip"
+  ],
+  "colorBgShape": [],
+  "colorBgMaskWhite": [
+    "spin"
+  ],
+  "colorLink": [
+    "button",
+    "tooltip"
+  ],
+  "colorLinkActive": [
+    "button"
+  ],
+  "colorLinkHover": [
+    "button"
+  ]
+}
